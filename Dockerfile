@@ -1,4 +1,6 @@
-From python:3.7
-COPY . .
-RUN pip install -r requirements.txt
-CMD ["python", "./my_script.py"]
+FROM ubuntu 
+RUN apt-get update 
+RUN apt-get install –y apache2 
+RUN apt-get install –y apache2-utils 
+RUN apt-get clean 
+EXPOSE 80 CMD [“apache2ctl”, “-D”, “FOREGROUND”]
